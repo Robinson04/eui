@@ -26,6 +26,8 @@ import { EuiScreenReaderOnly } from '../accessibility';
 import { EuiText } from '../text';
 import { keys, htmlIdGenerator } from '../../services';
 import { EuiInnerText } from '../inner_text';
+import {EuiButton, EuiContextMenu, EuiFormRow, EuiPopover, EuiSpacer, EuiSwitch} from "@elastic/eui";
+import {EuiContextMenuPanelDescriptor} from "@elastic/eui/src/components/context_menu/context_menu";
 
 const EuiTreeViewContext = createContext<string>('');
 
@@ -74,6 +76,8 @@ export interface Node {
    The open state of the item will always be toggled.
    */
   callback?(): string;
+  /** Function to call when the item container context menu is trigger */
+  onContextMenu?(): any;
 }
 
 export type EuiTreeViewDisplayOptions = 'default' | 'compressed';
@@ -90,6 +94,7 @@ interface EuiTreeViewState {
   activeItem: string;
   treeID: string;
   expandChildNodes: boolean;
+  openedPopoverId: string | null;
 }
 
 export type CommonTreeProps = CommonProps &
@@ -134,6 +139,7 @@ export class EuiTreeView extends Component<EuiTreeViewProps, EuiTreeViewState> {
     activeItem: '',
     treeID: getTreeId(this.props.id, this.context, this.treeIdGenerator),
     expandChildNodes: this.props.expandByDefault || false,
+    openedPopoverId: null
   };
 
   componentDidUpdate(prevProps: EuiTreeViewProps) {
@@ -251,6 +257,14 @@ export class EuiTreeView extends Component<EuiTreeViewProps, EuiTreeViewState> {
     }
   };
 
+  openPopover = (buttonId: string) => {
+    this.setState({openedPopoverId: buttonId});
+  }
+
+  closePopover = () => {
+    this.setState({openedPopoverId: null});
+  }
+
   render() {
     const {
       children,
@@ -342,48 +356,68 @@ export class EuiTreeView extends Component<EuiTreeViewProps, EuiTreeViewState> {
                           node.className ? node.className : null
                         );
 
+                        let nodeButton = (
+                          <button
+                            id={buttonId}
+                            aria-controls={wrappingId}
+                            aria-expanded={this.isNodeOpen(node)}
+                            ref={(ref) => this.setButtonRef(ref, index)}
+                            data-test-subj={`euiTreeViewButton-${this.state.treeID}`}
+                            onKeyDown={(event: React.KeyboardEvent) =>
+                              this.onKeyDown(event, node)
+                            }
+                            onClick={() => this.handleNodeClick(node)}
+                            className={nodeButtonClasses}>
+                            {showExpansionArrows && node.children ? (
+                              <EuiIcon
+                                className="euiTreeView__expansionArrow"
+                                size={display === 'compressed' ? 's' : 'm'}
+                                type={
+                                  this.isNodeOpen(node)
+                                    ? 'arrowDown'
+                                    : 'arrowRight'
+                                }
+                              />
+                            ) : null}
+                            {node.icon && !node.useEmptyIcon ? (
+                              <span className="euiTreeView__iconWrapper">
+                                {this.isNodeOpen(node) &&
+                                node.iconWhenExpanded
+                                  ? node.iconWhenExpanded
+                                  : node.icon}
+                              </span>
+                            ) : null}
+                            {node.useEmptyIcon && !node.icon ? (
+                              <span className="euiTreeView__iconPlaceholder" />
+                            ) : null}
+                            <span
+                              ref={ref}
+                              className="euiTreeView__nodeLabel">
+                              {node.label}
+                            </span>
+                          </button>
+                        );
+                        if (node.onContextMenu != null) {
+                          nodeButton = <EuiPopover
+                            button={nodeButton}
+                            isOpen={this.state.openedPopoverId === buttonId}
+                            closePopover={this.closePopover}
+                            panelPaddingSize="none"
+                            anchorPosition="downLeft"
+                          >
+                            <EuiContextMenu className="insideTreeView" initialPanelId={0} panels={makePanels()} />
+                          </EuiPopover>;
+                        }
+
                         return (
                           <React.Fragment>
-                            <li className={nodeClasses}>
-                              <button
-                                id={buttonId}
-                                aria-controls={wrappingId}
-                                aria-expanded={this.isNodeOpen(node)}
-                                ref={(ref) => this.setButtonRef(ref, index)}
-                                data-test-subj={`euiTreeViewButton-${this.state.treeID}`}
-                                onKeyDown={(event: React.KeyboardEvent) =>
-                                  this.onKeyDown(event, node)
-                                }
-                                onClick={() => this.handleNodeClick(node)}
-                                className={nodeButtonClasses}>
-                                {showExpansionArrows && node.children ? (
-                                  <EuiIcon
-                                    className="euiTreeView__expansionArrow"
-                                    size={display === 'compressed' ? 's' : 'm'}
-                                    type={
-                                      this.isNodeOpen(node)
-                                        ? 'arrowDown'
-                                        : 'arrowRight'
-                                    }
-                                  />
-                                ) : null}
-                                {node.icon && !node.useEmptyIcon ? (
-                                  <span className="euiTreeView__iconWrapper">
-                                    {this.isNodeOpen(node) &&
-                                    node.iconWhenExpanded
-                                      ? node.iconWhenExpanded
-                                      : node.icon}
-                                  </span>
-                                ) : null}
-                                {node.useEmptyIcon && !node.icon ? (
-                                  <span className="euiTreeView__iconPlaceholder" />
-                                ) : null}
-                                <span
-                                  ref={ref}
-                                  className="euiTreeView__nodeLabel">
-                                  {node.label}
-                                </span>
-                              </button>
+                            <li className={nodeClasses} {...node.onContextMenu == null ? {} : {
+                              onContextMenu: (event: React.MouseEvent<HTMLLIElement>) => {
+                                event.preventDefault();
+                                this.openPopover(buttonId);
+                                // node.onContextMenu();
+                              }}}>
+                              {nodeButton}
                               <div
                                 id={wrappingId}
                                 onKeyDown={(event: React.KeyboardEvent) =>
@@ -415,4 +449,111 @@ export class EuiTreeView extends Component<EuiTreeViewProps, EuiTreeViewState> {
       </EuiTreeViewContext.Provider>
     );
   }
+}
+
+function makePanels(): EuiContextMenuPanelDescriptor[] {
+  return [
+    {
+      id: 0,
+      title: 'This is a context menu',
+      items: [
+        {
+          name: 'Handle an onClick',
+          // icon: <EuiIcon type="search" size="m"/>,
+          onClick: () => {
+            //  this.closePopover();
+          },
+        },
+        {
+          name: 'Go to a link',
+          icon: 'user',
+          href: 'http://elastic.co',
+          target: '_blank',
+        },
+        {
+          name: 'Nest panels',
+          icon: 'user',
+          panel: 1,
+        },
+        {
+          name: 'You can add a tooltip',
+          icon: 'user',
+          toolTipTitle: 'Optional tooltip',
+          toolTipContent: 'Optional content for a tooltip',
+          toolTipPosition: 'right',
+          onClick: () => {
+            // this.closePopover();
+          },
+        },
+        {
+          name: 'Disabled option',
+          icon: 'user',
+          toolTipContent: 'For reasons, this item is disabled',
+          toolTipPosition: 'right',
+          disabled: true,
+          onClick: () => {
+            // this.closePopover();
+          },
+        },
+      ],
+    },
+    {
+      id: 1,
+      // initialFocusedItemIndex: 1,
+      title: 'Nest panels',
+      items: [
+        {
+          name: 'PDF reports',
+          icon: 'user',
+          onClick: () => {
+            // this.closePopover();
+          },
+        },
+        {
+          name: 'Embed code',
+          icon: 'user',
+          panel: 2,
+        },
+        {
+          name: 'Permalinks',
+          icon: 'user',
+          onClick: () => {
+            // this.closePopover();
+          },
+        },
+      ],
+    },
+    {
+      id: 2,
+      title: 'Embed code',
+      content: (
+        <div style={{padding: 16}}>
+          <EuiFormRow label="Generate a public snapshot?" hasChildLabel={false}>
+            <EuiSwitch
+              name="switch"
+              id="asdf"
+              label="Snapshot data"
+              checked={true}
+              onChange={() => {
+              }}
+            />
+          </EuiFormRow>
+          <EuiFormRow
+            label="Include the following in the embed"
+            hasChildLabel={false}>
+            <EuiSwitch
+              name="switch"
+              id="asdf2"
+              label="Current time range"
+              checked={true}
+              onChange={() => {
+              }}
+            />
+          </EuiFormRow>
+          <EuiSpacer/>
+          <EuiButton fill>Copy iFrame code</EuiButton>
+        </div>
+      ),
+    },
+  ];
 }

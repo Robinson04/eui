@@ -115,3 +115,14 @@
     }
   }
 }
+
+.euiContextMenu.insideTreeView {
+  background: $euiColorLightestShade;
+}
+.euiTreeView__node .euiPopover {
+  width: 100%;
+}
+.euiTreeView__node .euiPopover .euiPopover__anchor {
+  width: 100%;
+}
+
