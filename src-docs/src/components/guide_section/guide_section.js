@@ -196,11 +196,11 @@ export class GuideSection extends Component {
         renderedCode = renderedCode.default
           .replace(
             /(from )'(..\/)+src\/services(\/?';)/g,
-            "from '@elastic/eui/lib/services';"
+            "from '@inoft/eui/lib/services';"
           )
           .replace(
             /(from )'(..\/)+src\/components\/.*?';/g,
-            "from '@elastic/eui';"
+            "from '@inoft/eui';"
           );
         renderedCode = renderedCode.split('\n');
         const linesWithImport = [];
@@ -209,7 +209,7 @@ export class GuideSection extends Component {
           const line = renderedCode[idx];
           if (
             line.includes('import') &&
-            line.includes("from '@elastic/eui';")
+            line.includes("from '@inoft/eui';")
           ) {
             linesWithImport.push(line);
             renderedCode[idx] = '';
@@ -217,13 +217,13 @@ export class GuideSection extends Component {
         }
         if (linesWithImport.length > 1) {
           linesWithImport[0] = linesWithImport[0].replace(
-            " } from '@elastic/eui';",
+            " } from '@inoft/eui';",
             ','
           );
           for (let i = 1; i < linesWithImport.length - 1; i++) {
             linesWithImport[i] = linesWithImport[i]
               .replace('import {', '')
-              .replace(" } from '@elastic/eui';", ',');
+              .replace(" } from '@inoft/eui';", ',');
           }
           linesWithImport[linesWithImport.length - 1] = linesWithImport[
             linesWithImport.length - 1

@@ -4,10 +4,10 @@ export const hasDisplayToggles = (code) => {
 
 export const cleanEuiImports = (code) => {
   return code
-    .replace(/(from )'(..\/)+src\/components(\/?';)/, "from '@elastic/eui';")
+    .replace(/(from )'(..\/)+src\/components(\/?';)/, "from '@inoft/eui';")
     .replace(
       /(from )'(..\/)+src\/services(\/?';)/,
-      "from '@elastic/eui/lib/services';"
+      "from '@inoft/eui/lib/services';"
     );
 };
 

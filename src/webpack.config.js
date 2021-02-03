@@ -18,7 +18,7 @@
  */
 
 /* eslint-disable @typescript-eslint/no-var-requires */
-
+console.log("good webpack");
 const path = require('path');
 const webpack = require('webpack');
 const CircularDependencyPlugin = require('circular-dependency-plugin');
@@ -80,6 +80,8 @@ module.exports = {
 
   module: {
     rules: [
+      { test: new RegExp('react', 'g'), use: 'null-loader' },
+      { test: new RegExp('react-dom', 'g'), use: 'null-loader' },
       {
         test: /\.(js|tsx?)$/,
         loader: 'babel-loader',

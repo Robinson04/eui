@@ -188,7 +188,7 @@ In Kibana's Jest configuration, the `moduleNameMapper` option is used to resolve
 
 ```js
 moduleNameMapper: {
-  '@elastic/eui$': '<rootDir>/node_modules/@elastic/eui/test-env'
+  '@inoft/eui$': '<rootDir>/node_modules/@inoft/eui/test-env'
 }
 ```
 

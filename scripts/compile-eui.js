@@ -116,7 +116,7 @@ function compileBundle() {
   });
 
   console.log('Building minified bundle...');
-  execSync('NODE_ENV=production NODE_OPTIONS=--max-old-space-size=4096 webpack --config=src/webpack.config.js', {
+  execSync('cross-env NODE_ENV=production NODE_OPTIONS=--max-old-space-size=4096 webpack --config=src/webpack.config.js', {
     stdio: 'inherit',
     env: {
       ...process.env,
@@ -131,11 +131,11 @@ function compileBundle() {
     baseDir: path.resolve(__dirname, '..', 'src/test/'),
     files: ['index.ts'],
     resolveModuleId({ currentModuleId }) {
-      return `@elastic/eui/lib/test${currentModuleId !== 'index' ? `/${currentModuleId}` : ''}`;
+      return `@inoft/eui/lib/test${currentModuleId !== 'index' ? `/${currentModuleId}` : ''}`;
     },
     resolveModuleImport({ currentModuleId, importedModuleId }) {
    		if (currentModuleId === 'index') {
-  			return `@elastic/eui/lib/test/${importedModuleId.replace('./', '')}`;
+  			return `@inoft/eui/lib/test/${importedModuleId.replace('./', '')}`;
   		}
 			return null;
 	  }
@@ -146,11 +146,11 @@ function compileBundle() {
     baseDir: path.resolve(__dirname, '..', 'src/test/'),
     files: ['index.ts'],
     resolveModuleId({ currentModuleId }) {
-      return `@elastic/eui/es/test${currentModuleId !== 'index' ? `/${currentModuleId}` : ''}`;
+      return `@inoft/eui/es/test${currentModuleId !== 'index' ? `/${currentModuleId}` : ''}`;
     },
     resolveModuleImport({ currentModuleId, importedModuleId }) {
    		if (currentModuleId === 'index') {
-          return `@elastic/eui/es/test/${importedModuleId.replace('./', '')}`;
+          return `@inoft/eui/es/test/${importedModuleId.replace('./', '')}`;
   		}
 			return null;
 	  }
@@ -170,11 +170,11 @@ function compileBundle() {
     baseDir: path.resolve(__dirname, '..', 'src/themes/charts/'),
     files: ['themes.ts'],
     resolveModuleId() {
-      return '@elastic/eui/dist/eui_charts_theme';
+      return '@inoft/eui/dist/eui_charts_theme';
     },
     resolveModuleImport(params) {
    		if (params.importedModuleId === '../../components/common') {
-  			return '@elastic/eui/src/components/common';
+  			return '@inoft/eui/src/components/common';
   		}
 			return null;
 	  }

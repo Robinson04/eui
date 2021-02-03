@@ -60,7 +60,7 @@ export const ElasticChartsSparklinesExample = {
             sparklines.
           </p>
           <EuiCodeBlock language="javascript" isCopyable>
-            {`import { EUI_CHARTS_THEME_DARK, EUI_CHARTS_THEME_LIGHT, EUI_SPARKLINE_THEME_PARTIAL } from \'@elastic/eui/dist/eui_charts_theme\';
+            {`import { EUI_CHARTS_THEME_DARK, EUI_CHARTS_THEME_LIGHT, EUI_SPARKLINE_THEME_PARTIAL } from \'@inoft/eui/dist/eui_charts_theme\';
 const euiTheme = isDarkTheme ? EUI_CHARTS_THEME_DARK.theme : EUI_CHARTS_THEME_LIGHT.theme;
 <Settings theme={[EUI_SPARKLINE_THEME_PARTIAL, euiTheme]} />`}
           </EuiCodeBlock>

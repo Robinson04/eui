@@ -1,11 +1,15 @@
+const path = require('path');
 const findup = require('findup');
 const resolve = require('resolve');
 const fs = require('fs');
-const path = require('path');
 const dtsGenerator = require('dts-generator').default;
 
 const baseDir = path.resolve(__dirname, '..');
 const srcDir = path.resolve(baseDir, 'src');
+
+function processPath(pathString) {
+  return pathString.replace(/\\/g, "/");
+}
 
 function hasParentIndex(pathToFile) {
   const isIndexFile =
@@ -25,7 +29,7 @@ function hasParentIndex(pathToFile) {
 }
 
 const generator = dtsGenerator({
-  prefix: '@elastic/eui',
+  prefix: '@inoft/eui',
   project: baseDir,
   out: 'eui.d.ts',
   exclude: [
@@ -44,15 +48,13 @@ const generator = dtsGenerator({
       path.basename(params.currentModuleId) === 'index' &&
       !hasParentIndex(path.resolve(baseDir, params.currentModuleId))
     ) {
-      // this module is exporting from an `index(.d)?.ts` file, declare its exports straight to @elastic/eui module
-      return '@elastic/eui';
+      // this module is exporting from an `index(.d)?.ts` file, declare its exports straight to @inoft/eui module
+      return '@inoft/eui';
     } else {
-      // otherwise export as the module's path relative to the @elastic/eui namespace
-      if (params.currentModuleId.endsWith('/index')) {
-        return path.join('@elastic/eui', path.dirname(params.currentModuleId));
-      } else {
-        return path.join('@elastic/eui', params.currentModuleId);
-      }
+      // otherwise export as the module's path relative to the @inoft/eui namespace
+      const path = processPath(path.join('@inoft/eui', params.currentModuleId.endsWith('/index') ? path.dirname(params.currentModuleId) : params.currentModuleId));
+      console.log(`module path = ${path}`);
+      return path;
     }
   },
   resolveModuleImport(params) {
@@ -66,7 +68,7 @@ const generator = dtsGenerator({
 
     if (isRelativeImport) {
       // if importing from an `index` file (directly or targeting a directory with an index),
-      // then if there is no parent index file this should import from @elastic/eui
+      // then if there is no parent index file this should import from @inoft/eui
       const importPathTarget = resolve.sync(params.importedModuleId, {
         basedir: importFromBaseDir,
         extensions: ['.ts', '.tsx', '.d.ts'],
@@ -76,15 +78,15 @@ const generator = dtsGenerator({
       const isModuleIndex = isIndexFile && !hasParentIndex(importPathTarget);
 
       if (isModuleIndex) {
-        // importing an `index` file, in `resolveModuleId` above we change those modules to '@elastic/eui'
-        return '@elastic/eui';
+        // importing an `index` file, in `resolveModuleId` above we change those modules to '@inoft/eui'
+        return '@inoft/eui';
       } else {
-        // importing from a non-index TS source file, keep the import path but re-scope it to '@elastic/eui' namespace
-        return path.join(
-          '@elastic/eui',
+        // importing from a non-index TS source file, keep the import path but re-scope it to '@inoft/eui' namespace
+        return processPath(path.join(
+          '@inoft/eui',
           path.dirname(params.currentModuleId),
           params.importedModuleId
-        );
+        ));
       }
     } else {
       return params.importedModuleId;
@@ -94,8 +96,8 @@ const generator = dtsGenerator({
 
 // NOTE: once EUI is all converted to typescript this madness can be deleted forever
 // 1. strip any `/// <reference` lines from the generated eui.d.ts
-// 2. replace any import("src/...") declarations to import("@elastic/eui/src/...")
-// 3. replace any import("./...") declarations to import("@elastic/eui/src/...)
+// 2. replace any import("src/...") declarations to import("@inoft/eui/src/...")
+// 3. replace any import("./...") declarations to import("@inoft/eui/src/...)
 generator.then(() => {
   const defsFilePath = path.resolve(baseDir, 'eui.d.ts');
 
@@ -105,7 +107,7 @@ generator.then(() => {
       .readFileSync(defsFilePath)
       .toString()
       .replace(/\/\/\/\W+<reference.*/g, '') // 1.
-      .replace(/import\("src\/(.*?)"\)/g, 'import("@elastic/eui/src/$1")') // 2.
+      .replace(/import\("src\/(.*?)"\)/g, 'import("@inoft/eui/src/$1")') // 2.
       .replace(
         // start 3.
         // find any singular `declare module { ... }` block
@@ -122,13 +124,13 @@ generator.then(() => {
             // replace relative imports by attaching them to the module's namespace
             /import\("([.]{1,2}\/.*?)"\)/g,
             (importStatement, importPath) => {
-              let target = path.join(path.dirname(moduleName), importPath);
+              let target = processPath(path.join(path.dirname(moduleName), importPath));
 
-              // if the target resolves to an orphaned index.ts file, remap to '@elastic/eui'
-              const filePath = target.replace('@elastic/eui', baseDir);
+              // if the target resolves to an orphaned index.ts file, remap to '@inoft/eui'
+              const filePath = target.replace('@inoft/eui', baseDir);
               const filePathTs = `${filePath}.ts`;
               const filePathTsx = `${filePath}.tsx`;
-              const filePathResolvedToIndex = path.join(filePath, 'index.ts');
+              const filePathResolvedToIndex = processPath(path.join(filePath, 'index.ts'));
               if (
                 // fs.existsSync(filePath) === false && // target file doesn't exist
                 fs.existsSync(filePathTs) === false && // target file (.ts) doesn't exist
@@ -136,7 +138,7 @@ generator.then(() => {
                 fs.existsSync(filePathResolvedToIndex) && // and it resolves to an index.ts
                 hasParentIndex(filePathResolvedToIndex) === false // does not get exported at a higher level
               ) {
-                target = '@elastic/eui';
+                target = '@inoft/eui';
               }
 
               return `import ("${target}")`;
