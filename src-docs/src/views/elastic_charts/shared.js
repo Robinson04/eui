@@ -9,10 +9,10 @@ import {
   EuiText,
   EuiTitle,
 } from '../../../../src/components';
-import { BarSeries, LineSeries, AreaSeries } from '@elastic/charts';
+import { BarSeries, LineSeries, AreaSeries } from '@inoft/charts';
 import { devDependencies } from '../../../../package';
 
-const chartsVersion = devDependencies['@elastic/charts'].match(
+const chartsVersion = devDependencies['@inoft/charts'].match(
   /\d+\.\d+\.\d+/
 )[0];
 
@@ -27,13 +27,13 @@ export const ExternalBadge = () => {
     <EuiBadge
       iconType="popout"
       iconSide="right"
-      onClickAriaLabel="Go to @elastic/charts docs"
+      onClickAriaLabel="Go to @inoft/charts docs"
       onClick={() =>
         window.open(
           `https://github.com/elastic/elastic-charts/tree/v${chartsVersion}`
         )
       }>
-      External library: @elastic/charts v{chartsVersion}
+      External library: @inoft/charts v{chartsVersion}
     </EuiBadge>
   );
 };

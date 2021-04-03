@@ -34,7 +34,7 @@ export default () => {
         EuiToast,
       },
       imports: {
-        '@elastic/eui': {
+        '@inoft/eui': {
           named: ['EuiToast'],
         },
       },

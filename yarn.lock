@@ -995,9 +995,9 @@
     exec-sh "^0.3.2"
     minimist "^1.2.0"
 
-"@elastic/charts@^20.0.0":
+"@inoft/charts@^20.0.0":
   version "20.0.2"
-  resolved "https://registry.yarnpkg.com/@elastic/charts/-/charts-20.0.2.tgz#e64bd11b75576e87e794c23b0bca2d0ead83149a"
+  resolved "https://registry.yarnpkg.com/@inoft/charts/-/charts-20.0.2.tgz#e64bd11b75576e87e794c23b0bca2d0ead83149a"
   integrity sha512-qPua1PcnYfSYEU9ql99BWw5NxqHWBkPFAxlqvA+4vaE4IxXR7IWwFHFgyJY9v1qnQrxc+lN2AWdETJbREPC1nA==
   dependencies:
     "@popperjs/core" "^2.4.0"
@@ -1030,9 +1030,9 @@
   dependencies:
     tslib "^1.9.3"
 
-"@elastic/eslint-config-kibana@^0.15.0":
+"@inoft/eslint-config-kibana@^0.15.0":
   version "0.15.0"
-  resolved "https://registry.yarnpkg.com/@elastic/eslint-config-kibana/-/eslint-config-kibana-0.15.0.tgz#a552793497cdfc1829c2f9b7cd7018eb008f1606"
+  resolved "https://registry.yarnpkg.com/@inoft/eslint-config-kibana/-/eslint-config-kibana-0.15.0.tgz#a552793497cdfc1829c2f9b7cd7018eb008f1606"
   integrity sha1-pVJ5NJfN/Bgpwvm3zXAY6wCPFgY=
 
 "@eslint/eslintrc@^0.1.3":

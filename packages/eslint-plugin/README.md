@@ -1,15 +1,15 @@
-# `@elastic/eslint-plugin-eui`
+# `@inoft/eslint-plugin-eui`
 
 This package contains an eslint plugin that enforces some default rules for using EUI.
 
 ## Setup
 
-1. install `@elastic/eslint-plugin-eui` as a dev dependency
-2. extend `plugin:@elastic/eui/recommended` in your eslint config
+1. install `@inoft/eslint-plugin-eui` as a dev dependency
+2. extend `plugin:@inoft/eui/recommended` in your eslint config
 
 ## Rules
 
-### `@elastic/eui/href-or-on-click`
+### `@inoft/eui/href-or-on-click`
 
 `<EuiButton />` should either be a button or a link, for a11y purposes. When given an `href` the button behaves as a link, otherwise an `onClick` handler is expected and it will behave as a button.
 

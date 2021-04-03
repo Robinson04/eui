@@ -31,7 +31,7 @@ export const textConfig = () => {
         EuiText,
       },
       imports: {
-        '@elastic/eui': {
+        '@inoft/eui': {
           named: ['EuiText'],
         },
       },
@@ -64,7 +64,7 @@ export const textColorConfig = () => {
         EuiTextColor,
       },
       imports: {
-        '@elastic/eui': {
+        '@inoft/eui': {
           named: ['EuiTextColor'],
         },
       },

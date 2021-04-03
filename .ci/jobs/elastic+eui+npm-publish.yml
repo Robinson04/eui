@@ -2,7 +2,7 @@
 - job:
     name: elastic+eui+npm-publish
     display-name: elastic / eui - npm-publish
-    description: "Publish a version of EUI to @elastic/eui on npm"
+    description: "Publish a version of EUI to @inoft/eui on npm"
     scm:
       - git:
           refspec: +refs/heads/*:refs/remotes/origin/*

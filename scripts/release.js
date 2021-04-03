@@ -49,7 +49,7 @@ if (args.dry_run) {
     execSync('npm run build', execOptions);
   }
 
-  
+
   if (args.steps.indexOf('version') > -1) {
     // prompt user for what type of version bump to make (major|minor|patch)
     const versionTarget = await getVersionTypeFromChangelog();
@@ -241,9 +241,9 @@ async function promptUserForVersionType() {
 
 async function getOneTimePassword() {
   const version = require('../package.json').version
-  console.log(chalk.magenta(`Preparing to publish @elastic/eui@${version} to npm registry`));
+  console.log(chalk.magenta(`Preparing to publish @inoft/eui@${version} to npm registry`));
   console.log('');
-  console.log(chalk.magenta('The @elastic organization requires membership and 2FA to publish'));
+  console.log(chalk.magenta('The @inoft organization requires membership and 2FA to publish'));
 
   if (process.env.NPM_OTP) {
     console.log(chalk.magenta('2FA code provided by NPM_OTP environment variable'));

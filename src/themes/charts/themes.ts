@@ -23,7 +23,7 @@ import {
   PartialTheme,
   LineAnnotationStyle,
   PartitionConfig,
-} from '@elastic/charts';
+} from '@inoft/charts';
 
 import { RecursivePartial } from '../../components/common';
 

@@ -46,4 +46,4 @@
       - timestamps
     publishers:
       - email:
-          recipients: eui-alerts@elastic.co
+          recipients: eui-alerts@inoft.co

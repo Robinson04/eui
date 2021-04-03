@@ -31,7 +31,7 @@ export const stepConfig = () => {
         EuiStep,
       },
       imports: {
-        '@elastic/eui': {
+        '@inoft/eui': {
           named: ['EuiStep'],
         },
       },
@@ -59,7 +59,7 @@ export const stepHorizontalConfig = () => {
         EuiStepHorizontal,
       },
       imports: {
-        '@elastic/eui': {
+        '@inoft/eui': {
           named: ['EuiStepHorizontal'],
         },
       },

@@ -52,9 +52,11 @@ const generator = dtsGenerator({
       return '@inoft/eui';
     } else {
       // otherwise export as the module's path relative to the @inoft/eui namespace
-      const path = processPath(path.join('@inoft/eui', params.currentModuleId.endsWith('/index') ? path.dirname(params.currentModuleId) : params.currentModuleId));
-      console.log(`module path = ${path}`);
-      return path;
+      if (params.currentModuleId.endsWith('/index')) {
+        return processPath(path.join('@inoft/eui', path.dirname(params.currentModuleId)));
+      } else {
+        return processPath(path.join('@inoft/eui', params.currentModuleId));
+      }
     }
   },
   resolveModuleImport(params) {

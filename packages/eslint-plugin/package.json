@@ -1,5 +1,5 @@
 {
-  "name": "@elastic/eslint-plugin-eui",
+  "name": "@inoft/eslint-plugin-eui",
   "version": "0.0.2",
   "license": "Apache-2.0",
   "repository": {

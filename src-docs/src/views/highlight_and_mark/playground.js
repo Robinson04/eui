@@ -29,7 +29,7 @@ export const highlightConfig = () => {
         EuiHighlight,
       },
       imports: {
-        '@elastic/eui': {
+        '@inoft/eui': {
           named: ['EuiHighlight'],
         },
       },
@@ -53,7 +53,7 @@ export const markConfig = () => {
         EuiMark,
       },
       imports: {
-        '@elastic/eui': {
+        '@inoft/eui': {
           named: ['EuiMark'],
         },
       },

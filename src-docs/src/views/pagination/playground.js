@@ -21,7 +21,7 @@ export const paginationConfig = () => {
         EuiText,
       },
       imports: {
-        '@elastic/eui': {
+        '@inoft/eui': {
           named: ['EuiPagination', 'EuiText'],
         },
       },

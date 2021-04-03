@@ -15,7 +15,7 @@ export const spacerConfig = () => {
         EuiSpacer,
       },
       imports: {
-        '@elastic/eui': {
+        '@inoft/eui': {
           named: ['EuiSpacer'],
         },
       },

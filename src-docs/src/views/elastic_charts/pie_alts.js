@@ -7,7 +7,7 @@ import sortBy from 'lodash/sortBy';
 import sumBy from 'lodash/sumBy';
 
 import { ThemeContext } from '../../components';
-import { Chart, Settings, Axis, BarSeries } from '@elastic/charts';
+import { Chart, Settings, Axis, BarSeries } from '@inoft/charts';
 
 import {
   EUI_CHARTS_THEME_DARK,

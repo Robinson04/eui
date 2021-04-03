@@ -39,7 +39,7 @@ export const facetButtonConfig = () => {
         EuiFacetButton,
       },
       imports: {
-        '@elastic/eui': {
+        '@inoft/eui': {
           named: ['EuiFacetButton'],
         },
       },
@@ -89,7 +89,7 @@ export const facetLayoutConfig = () => {
         EuiFacetGroup,
       },
       imports: {
-        '@elastic/eui': {
+        '@inoft/eui': {
           named: ['EuiFacetButton', 'EuiFacetGroup'],
         },
       },

@@ -2,7 +2,7 @@ import React from 'react';
 
 /**
  * Docs note: Consuming apps should import the theme via the export json file
- * import theme from '@elastic/eui/dist/eui_theme_light.json';
+ * import theme from '@inoft/eui/dist/eui_theme_light.json';
  */
 
 import {

@@ -11,7 +11,7 @@ const ruleTester = new RuleTester({
   },
 });
 
-ruleTester.run('@elastic/eui/href-or-on-click', rule, {
+ruleTester.run('@inoft/eui/href-or-on-click', rule, {
   valid: [
     {
       code: dedent(`

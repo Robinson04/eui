@@ -46,7 +46,7 @@ export default () => {
         EuiText,
       },
       imports: {
-        '@elastic/eui': {
+        '@inoft/eui': {
           named: ['EuiComment', 'EuiText'],
         },
       },

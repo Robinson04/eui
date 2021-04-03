@@ -38,7 +38,7 @@ export default () => {
         EuiText,
       },
       imports: {
-        '@elastic/eui': {
+        '@inoft/eui': {
           named: ['EuiCallOut', 'EuiText'],
         },
       },

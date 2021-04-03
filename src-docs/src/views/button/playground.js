@@ -37,7 +37,7 @@ export default () => {
         EuiButton,
       },
       imports: {
-        '@elastic/eui': {
+        '@inoft/eui': {
           named: ['EuiButton'],
         },
       },

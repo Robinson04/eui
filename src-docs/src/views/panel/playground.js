@@ -44,7 +44,7 @@ export const panelConfig = () => {
         EuiText,
       },
       imports: {
-        '@elastic/eui': {
+        '@inoft/eui': {
           named: ['EuiPanel', 'EuiText'],
         },
       },

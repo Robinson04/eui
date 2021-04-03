@@ -48,7 +48,7 @@ export default () => {
         EuiLink,
       },
       imports: {
-        '@elastic/eui': {
+        '@inoft/eui': {
           named: ['EuiLink'],
         },
       },

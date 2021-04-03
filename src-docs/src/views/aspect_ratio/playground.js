@@ -34,7 +34,7 @@ export default () => {
         EuiAspectRatio,
       },
       imports: {
-        '@elastic/eui': {
+        '@inoft/eui': {
           named: ['EuiAspectRatio'],
         },
       },

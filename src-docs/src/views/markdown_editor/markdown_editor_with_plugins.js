@@ -6,7 +6,7 @@ import {
   Axis,
   BarSeries,
   DataGenerator,
-} from '@elastic/charts';
+} from '@inoft/charts';
 
 import { EUI_CHARTS_THEME_LIGHT } from '../../../../src/themes/charts/themes';
 

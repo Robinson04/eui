@@ -106,7 +106,7 @@ export const codeEditorConfig = () => {
         EuiCodeEditor,
       },
       imports: {
-        '@elastic/eui': {
+        '@inoft/eui': {
           named: ['EuiCodeEditor'],
         },
         'brace/theme/cobalt': {},

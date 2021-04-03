@@ -28,7 +28,7 @@ export const titleConfig = () => {
         EuiTitle,
       },
       imports: {
-        '@elastic/eui': {
+        '@inoft/eui': {
           named: ['EuiTitle'],
         },
       },

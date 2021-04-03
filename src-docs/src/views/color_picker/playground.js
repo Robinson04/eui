@@ -56,7 +56,7 @@ const colorPickerConfig = () => {
         EuiColorPicker,
       },
       imports: {
-        '@elastic/eui': {
+        '@inoft/eui': {
           named: ['EuiColorPicker'],
         },
       },

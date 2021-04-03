@@ -22,7 +22,7 @@ export const beaconConfig = () => {
         EuiBeacon,
       },
       imports: {
-        '@elastic/eui': {
+        '@inoft/eui': {
           named: ['EuiBeacon'],
         },
       },

@@ -301,7 +301,7 @@ In react-router 5.1, we can fully capitalize in the React Hooks utility, in this
 ```jsx
 // File name: "EuiCustomLink.js".
 import React from 'react';
-import { EuiLink } from '@elastic/eui';
+import { EuiLink } from '@inoft/eui';
 import { useHistory } from 'react-router';
 
 const isModifiedEvent = (event) =>

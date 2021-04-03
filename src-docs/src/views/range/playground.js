@@ -63,7 +63,7 @@ export const rangeConfig = () => {
         EuiRange,
       },
       imports: {
-        '@elastic/eui': {
+        '@inoft/eui': {
           named: ['EuiRange'],
         },
       },
@@ -124,7 +124,7 @@ export const dualRangeConfig = () => {
         EuiDualRange,
       },
       imports: {
-        '@elastic/eui': {
+        '@inoft/eui': {
           named: ['EuiDualRange'],
         },
       },

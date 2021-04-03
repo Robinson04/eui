@@ -41,7 +41,7 @@ export default () => {
         EuiStat,
       },
       imports: {
-        '@elastic/eui': {
+        '@inoft/eui': {
           named: ['EuiStat'],
         },
       },

@@ -56,7 +56,7 @@ export const keyPadMenuItemConfig = () => {
         EuiBetaBadge,
       },
       imports: {
-        '@elastic/eui': {
+        '@inoft/eui': {
           named: ['EuiKeyPadMenuItem', 'EuiIcon', 'EuiBetaBadge'],
         },
       },

@@ -9,7 +9,7 @@ import {
   niceTimeFormatByDay,
   LineAnnotation,
   BarSeries,
-} from '@elastic/charts';
+} from '@inoft/charts';
 
 import {
   EUI_CHARTS_THEME_DARK,

@@ -49,7 +49,7 @@ const fieldTextConfig = () => {
         EuiFieldText,
       },
       imports: {
-        '@elastic/eui': {
+        '@inoft/eui': {
           named: ['EuiFieldText'],
         },
       },
@@ -93,7 +93,7 @@ export const fieldSearchConfig = () => {
         EuiFieldSearch,
       },
       imports: {
-        '@elastic/eui': {
+        '@inoft/eui': {
           named: ['EuiFieldSearch'],
         },
       },
@@ -140,7 +140,7 @@ export const fieldNumberConfig = () => {
         EuiFieldNumber,
       },
       imports: {
-        '@elastic/eui': {
+        '@inoft/eui': {
           named: ['EuiFieldNumber'],
         },
       },
@@ -189,7 +189,7 @@ export const fieldPasswordConfig = () => {
         EuiFieldPassword,
       },
       imports: {
-        '@elastic/eui': {
+        '@inoft/eui': {
           named: ['EuiFieldPassword'],
         },
       },
@@ -232,7 +232,7 @@ export const textAreaConfig = () => {
         EuiTextArea,
       },
       imports: {
-        '@elastic/eui': {
+        '@inoft/eui': {
           named: ['EuiTextArea'],
         },
       },
@@ -269,7 +269,7 @@ export const checkboxConfig = () => {
         EuiCheckbox,
       },
       imports: {
-        '@elastic/eui': {
+        '@inoft/eui': {
           named: ['EuiCheckbox'],
         },
       },
@@ -308,7 +308,7 @@ export const radioConfig = () => {
         EuiRadio,
       },
       imports: {
-        '@elastic/eui': {
+        '@inoft/eui': {
           named: ['EuiRadio'],
         },
       },
@@ -346,7 +346,7 @@ const switchConfig = () => {
         EuiSwitch,
       },
       imports: {
-        '@elastic/eui': {
+        '@inoft/eui': {
           named: ['EuiSwitch'],
         },
       },

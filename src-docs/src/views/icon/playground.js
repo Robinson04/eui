@@ -27,7 +27,7 @@ export default () => {
         EuiIcon,
       },
       imports: {
-        '@elastic/eui': {
+        '@inoft/eui': {
           named: ['EuiIcon'],
         },
       },

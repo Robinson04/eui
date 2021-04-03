@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { ThemeContext } from '../../components';
-import { Chart, Partition } from '@elastic/charts';
+import { Chart, Partition } from '@inoft/charts';
 
 import {
   EUI_CHARTS_THEME_DARK,

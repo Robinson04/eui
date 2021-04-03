@@ -429,7 +429,7 @@
 
 **Breaking changes**
 
-- Requires `@elastic/charts` version `20.0.0` and above for chart theming utils.
+- Requires `@inoft/charts` version `20.0.0` and above for chart theming utils.
 
 ## [`27.4.1`](https://github.com/elastic/eui/tree/v27.4.1)
 
@@ -444,7 +444,7 @@
 **Bug fixes**
 
 - Improve `EuiDataGrid` Chrome rendering performance in full screen ([#3726](https://github.com/elastic/eui/issues/3726))
-- Removed `@elastic/eui/src-docs` entries from published _eui.d.ts_ ([#3856](https://github.com/elastic/eui/pull/3856))
+- Removed `@inoft/eui/src-docs` entries from published _eui.d.ts_ ([#3856](https://github.com/elastic/eui/pull/3856))
 
 ## [`27.3.1`](https://github.com/elastic/eui/tree/v27.3.1)
 
@@ -641,7 +641,7 @@
 
 - A fixed `EuiHeader` no longer automatically padding directly to the `<body>` element ([#3538](https://github.com/elastic/eui/pull/3538))
 - Improved `EuiPagination`, `EuiDataGrid`, `EuiBasicTable` and `EuiInMemoryTable` accessibility, causing `EuiPaginationButton` to require a new prop `pageIndex` ([#3294](https://github.com/elastic/eui/pull/3294))
-- Replaced all usages of [`KeyboardEvent.keyCode`](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/keyCode) (deprecated) with [`KeyboardEvent.key`](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/key). From `@elastic/eui/lib/services`, `keyCodes` has been replaced with `keys`, as has `cascadingMenuKeyCodes`->`cascadingMenuKeys`, and `comboBoxKeyCodes`->`comboBoxKeys`.  The implementation of all of those exports (as well as `accessibleClickKeys`) all now use `KeyboardEvent.key` values. ([#3517](https://github.com/elastic/eui/pull/3517))
+- Replaced all usages of [`KeyboardEvent.keyCode`](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/keyCode) (deprecated) with [`KeyboardEvent.key`](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/key). From `@inoft/eui/lib/services`, `keyCodes` has been replaced with `keys`, as has `cascadingMenuKeyCodes`->`cascadingMenuKeys`, and `comboBoxKeyCodes`->`comboBoxKeys`.  The implementation of all of those exports (as well as `accessibleClickKeys`) all now use `KeyboardEvent.key` values. ([#3517](https://github.com/elastic/eui/pull/3517))
 
 ## [`24.1.0`](https://github.com/elastic/eui/tree/v24.1.0)
 
@@ -1093,7 +1093,7 @@
 - Fixed `EuiSearchBar`, `Query`, and `AST`'s ability to accept literal parenthesis characters ([#2791](https://github.com/elastic/eui/pull/2791))
 - Fixed coloring of input fields when autofill is on in Chrome ([#2798](https://github.com/elastic/eui/pull/2798))
 - Moved `@types/enzyme` and `@types/react-virtualized` to `dependencies` status ([#2828](https://github.com/elastic/eui/pull/2828))
-- Removed `@elastic/charts` from inclusion in `eui.d.ts` output ([#2828](https://github.com/elastic/eui/pull/2828))
+- Removed `@inoft/charts` from inclusion in `eui.d.ts` output ([#2828](https://github.com/elastic/eui/pull/2828))
 
 **Breaking changes**
 
@@ -2054,7 +2054,7 @@
 
 ## [`9.9.1`](https://github.com/elastic/eui/tree/v9.9.1)
 
-- Re-enabled installation of `@elastic/eui` via npm ([#1811](https://github.com/elastic/eui/pull/1811))
+- Re-enabled installation of `@inoft/eui` via npm ([#1811](https://github.com/elastic/eui/pull/1811))
 
 **Bug fixes**
 
@@ -3798,7 +3798,7 @@ instead of just string ([#516](https://github.com/elastic/eui/pull/516))
 
 **Breaking changes**
 
-- Test helpers now published at `@elastic/eui/lib/test`
+- Test helpers now published at `@inoft/eui/lib/test`
 
 **Bug fixes**
 

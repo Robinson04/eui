@@ -1,6 +1,6 @@
 /* eslint-disable no-nested-ternary */
 import React, { Fragment, useState, useContext } from 'react';
-import { Chart, Partition, Settings } from '@elastic/charts';
+import { Chart, Partition, Settings } from '@inoft/charts';
 import { ThemeContext } from '../../components';
 
 import {

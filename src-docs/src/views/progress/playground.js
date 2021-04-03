@@ -33,7 +33,7 @@ export default () => {
         EuiProgress,
       },
       imports: {
-        '@elastic/eui': {
+        '@inoft/eui': {
           named: ['EuiProgress'],
         },
       },

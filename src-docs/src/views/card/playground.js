@@ -39,7 +39,7 @@ export default () => {
         EuiCard,
       },
       imports: {
-        '@elastic/eui': {
+        '@inoft/eui': {
           named: ['EuiCard'],
         },
       },

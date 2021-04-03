@@ -36,7 +36,7 @@ export const tabConfig = () => {
         EuiTab,
       },
       imports: {
-        '@elastic/eui': {
+        '@inoft/eui': {
           named: ['EuiTab'],
         },
       },

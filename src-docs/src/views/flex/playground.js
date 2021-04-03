@@ -38,7 +38,7 @@ export const flexGroupConfig = () => {
         EuiFlexItem,
       },
       imports: {
-        '@elastic/eui': {
+        '@inoft/eui': {
           named: ['EuiFlexGroup', 'EuiFlexItem'],
         },
       },
@@ -79,7 +79,7 @@ export const flexGridConfig = () => {
         EuiFlexItem,
       },
       imports: {
-        '@elastic/eui': {
+        '@inoft/eui': {
           named: ['EuiFlexGrid', 'EuiFlexItem'],
         },
       },

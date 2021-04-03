@@ -75,7 +75,7 @@ export interface Node {
    */
   callback?(): string;
   /** Function to call when the item container context menu is trigger */
-  onContextMenu?(event: React.MouseEvent<HTMLLIElement>, node: Node): any;
+  extraItems?: { [key: string]: any };
 }
 
 export type EuiTreeViewDisplayOptions = 'default' | 'compressed';
@@ -344,14 +344,9 @@ export class EuiTreeView extends Component<EuiTreeViewProps, EuiTreeViewState> {
                           node.className ? node.className : null
                         );
 
-                        const nodeAdditionalAttributes: { [key: string]: any } = {};
-                        if (node.onContextMenu != null) {
-                          nodeAdditionalAttributes['onContextMenu'] = node.onContextMenu;
-                        }
-
                         return (
                           <React.Fragment>
-                            <li className={nodeClasses} {...nodeAdditionalAttributes}>
+                            <li className={nodeClasses}>
                               <button
                                 id={buttonId}
                                 aria-controls={wrappingId}
@@ -362,6 +357,7 @@ export class EuiTreeView extends Component<EuiTreeViewProps, EuiTreeViewState> {
                                   this.onKeyDown(event, node)
                                 }
                                 onClick={() => this.handleNodeClick(node)}
+                                {...node.extraItems || {}}
                                 className={nodeButtonClasses}>
                                 {showExpansionArrows && node.children ? (
                                   <EuiIcon

@@ -1,7 +1,7 @@
 {
   "name": "@inoft/eui",
   "description": "Inoft fork of the Elastic UI Component Library",
-  "version": "31.4.0",
+  "version": "31.4.3",
   "license": "Apache-2.0",
   "main": "lib",
   "module": "es",
@@ -46,6 +46,7 @@
     "test-staged"
   ],
   "dependencies": {
+    "@elastic/eslint-config-kibana": "^0.15.0",
     "babel-cli": "^6.26.0",
     "chroma-js": "^2.1.0",
     "classnames": "^2.2.6",
@@ -87,9 +88,9 @@
     "@babel/preset-env": "^7.11.0",
     "@babel/preset-react": "^7.10.4",
     "@babel/preset-typescript": "^7.12.1",
-    "@elastic/charts": "^20.0.0",
+    "@inoft/charts": "^20.0.0",
     "@elastic/datemath": "^5.0.3",
-    "@elastic/eslint-config-kibana": "^0.15.0",
+    "@inoft/eslint-config-kibana": "^0.15.0",
     "@svgr/core": "5.4.0",
     "@svgr/plugin-svgo": "^4.0.3",
     "@types/chroma-js": "^2.0.0",

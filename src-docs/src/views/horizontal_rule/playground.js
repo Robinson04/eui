@@ -15,7 +15,7 @@ export const horizontalRuleConfig = () => {
         EuiHorizontalRule,
       },
       imports: {
-        '@elastic/eui': {
+        '@inoft/eui': {
           named: ['EuiHorizontalRule'],
         },
       },

@@ -7,7 +7,7 @@ import {
   Settings,
   LineSeries,
   AreaSeries,
-} from '@elastic/charts';
+} from '@inoft/charts';
 
 import {
   EUI_CHARTS_THEME_DARK,

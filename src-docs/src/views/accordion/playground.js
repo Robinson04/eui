@@ -42,7 +42,7 @@ export const accordionConfig = () => {
         EuiText,
       },
       imports: {
-        '@elastic/eui': {
+        '@inoft/eui': {
           named: ['EuiAccordion', 'EuiText'],
         },
       },

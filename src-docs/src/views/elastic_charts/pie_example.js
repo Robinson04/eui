@@ -231,7 +231,7 @@ export const ElasticChartsPieExample = {
         </>
       ),
       demo: <PieChart />,
-      snippet: `import { EUI_CHARTS_THEME_DARK, EUI_CHARTS_THEME_LIGHT } from '@elastic/eui/dist/eui_charts_theme';
+      snippet: `import { EUI_CHARTS_THEME_DARK, EUI_CHARTS_THEME_LIGHT } from '@inoft/eui/dist/eui_charts_theme';
 
 const euiChartTheme = isDarkTheme ? EUI_CHARTS_THEME_DARK : EUI_CHARTS_THEME_LIGHT;
 const euiPartitionConfig = euiChartTheme.partition;

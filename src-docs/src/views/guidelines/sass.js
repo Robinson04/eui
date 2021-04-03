@@ -311,9 +311,9 @@ const importKibanaExample = `// In Kibana you can add this to the top of your Sa
 `;
 
 const importOutsideExample = `// In an outside project, import the core variables like so
-@import '@elastic/eui/src/global_styling/functions/index';
-@import '@elastic/eui/src/global_styling/variables/index';
-@import '@elastic/eui/src/global_styling/mixins/index';
+@import '@inoft/eui/src/global_styling/functions/index';
+@import '@inoft/eui/src/global_styling/variables/index';
+@import '@inoft/eui/src/global_styling/mixins/index';
 `;
 
 const tintOrShadeExample = `// tintOrShade(color, tint_percent, shade_percent)

@@ -3,7 +3,7 @@ import orderBy from 'lodash/orderBy';
 import round from 'lodash/round';
 
 import { ThemeContext } from '../../components';
-import { Chart, Settings, Axis } from '@elastic/charts';
+import { Chart, Settings, Axis } from '@inoft/charts';
 
 import {
   EUI_CHARTS_THEME_DARK,

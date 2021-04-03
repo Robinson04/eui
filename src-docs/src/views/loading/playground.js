@@ -22,7 +22,7 @@ export const loadingElasticConfig = () => {
         EuiLoadingElastic,
       },
       imports: {
-        '@elastic/eui': {
+        '@inoft/eui': {
           named: ['EuiLoadingElastic'],
         },
       },
@@ -44,7 +44,7 @@ export const loadingChartConfig = () => {
         EuiLoadingChart,
       },
       imports: {
-        '@elastic/eui': {
+        '@inoft/eui': {
           named: ['EuiLoadingChart'],
         },
       },
@@ -66,7 +66,7 @@ export const loadingKibanaConfig = () => {
         EuiLoadingKibana,
       },
       imports: {
-        '@elastic/eui': {
+        '@inoft/eui': {
           named: ['EuiLoadingKibana'],
         },
       },
@@ -88,7 +88,7 @@ export const loadingSpinnerConfig = () => {
         EuiLoadingSpinner,
       },
       imports: {
-        '@elastic/eui': {
+        '@inoft/eui': {
           named: ['EuiLoadingSpinner'],
         },
       },
@@ -115,7 +115,7 @@ export const loadingContentConfig = () => {
         EuiLoadingContent,
       },
       imports: {
-        '@elastic/eui': {
+        '@inoft/eui': {
           named: ['EuiLoadingContent'],
         },
       },

@@ -39,13 +39,13 @@ export const CodeSandboxLink = ({ children, content }) => {
   if (!content) {
     /* 2 */
     indexContent = `import ReactDOM from 'react-dom';
-import '@elastic/eui/dist/eui_theme_light.css'
-// import '@elastic/eui/dist/eui_theme_dark.css'
+import '@inoft/eui/dist/eui_theme_light.css'
+// import '@inoft/eui/dist/eui_theme_dark.css'
 import React from 'react';
 
 import {
   EuiButton,
-} from '@elastic/eui';
+} from '@inoft/eui';
 
 const Demo = () => (<EuiButton>Hello world!</EuiButton>);
 
@@ -56,7 +56,7 @@ ReactDOM.render(
 `;
   } else {
     /** This cleans the Demo JS example for Code Sanbox.
-    - Replaces relative imports with pure @elastic/eui ones
+    - Replaces relative imports with pure @inoft/eui ones
     - Changes the JS example from a default export to a component const named Demo
     **/
     const exampleCleaned = cleanEuiImports(content)
@@ -82,8 +82,8 @@ ReactDOM.render(
     // The Code Sanbbox demo needs to import CSS at the top of the document. CS has trouble
     // with our dynamic imports so we need to warn the user for now
     const exampleStart = `import ReactDOM from 'react-dom';
-// import '@elastic/eui/dist/eui_theme_dark.css';
-import '@elastic/eui/dist/eui_theme_light.css'`;
+// import '@inoft/eui/dist/eui_theme_dark.css';
+import '@inoft/eui/dist/eui_theme_light.css'`;
 
     // Concat the three pieces of the example into a single string to use for index.js
     const cleanedContent = `${exampleStart}
@@ -113,7 +113,7 @@ ${exampleClose}
       'package.json': {
         content: {
           dependencies: {
-            '@elastic/eui': pkg.version,
+            '@inoft/eui': pkg.version,
             ...[
               '@elastic/datemath',
               'moment',

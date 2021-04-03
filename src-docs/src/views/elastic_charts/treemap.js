@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { ThemeContext } from '../../components';
-import { Chart, Partition, Settings, PartitionLayout } from '@elastic/charts';
+import { Chart, Partition, Settings, PartitionLayout } from '@inoft/charts';
 import { GITHUB_DATASET_MOD } from './data';
 import { euiPaletteColorBlind } from '../../../../src/services';
 

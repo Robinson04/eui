@@ -40,7 +40,7 @@ module.exports = {
     },
   },
   extends: [
-    '@elastic/eslint-config-kibana',
+    './kibana-eslintrc',
     'plugin:@typescript-eslint/recommended',
     // Prettier options need to come last, in order to override other style
     // rules.
@@ -117,8 +117,8 @@ module.exports = {
     '@typescript-eslint/ban-ts-comment': [
       'error',
       {
-        'ts-ignore': 'allow-with-description',
-        'ts-expect-error': 'allow-with-description',
+        'ts-ignore': true,
+        'ts-expect-error': true,
       },
     ],
   },

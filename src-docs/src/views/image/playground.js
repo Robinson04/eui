@@ -32,7 +32,7 @@ export default () => {
         EuiImage,
       },
       imports: {
-        '@elastic/eui': {
+        '@inoft/eui': {
           named: ['EuiImage'],
         },
       },

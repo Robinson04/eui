@@ -10,7 +10,7 @@ EUI also has `moment` and `@elastic/datemath` as dependencies itself. These are 
 
 EUI publishes React UI components, JavaScript helpers called services, and utilities for writing Jest tests. Please refer to the [Elastic UI Framework website](https://elastic.github.io/eui) for comprehensive info on what's available.
 
-EUI is published through [NPM](https://www.npmjs.com/package/@elastic/eui) as a dependency. We also provide a starter projects for:
+EUI is published through [NPM](https://www.npmjs.com/package/@inoft/eui) as a dependency. We also provide a starter projects for:
 - [GatsbyJS](https://github.com/elastic/gatsby-eui-starter)
 - [NextJS](https://github.com/elastic/next-eui-starter)
 
@@ -23,7 +23,7 @@ import {
   EuiButton,
   EuiCallOut,
   EuiPanel,
-} from '@elastic/eui';
+} from '@inoft/eui';
 ```
 
 ### Services
@@ -31,8 +31,8 @@ import {
 Most services are published from the `lib/services` directory. Some are published from their module directories in this directory.
 
 ```js
-import { keys } from '@elastic/eui/lib/services';
-import { Timer } from '@elastic/eui/lib/services/time';
+import { keys } from '@inoft/eui/lib/services';
+import { Timer } from '@inoft/eui/lib/services/time';
 ```
 
 ### Test
@@ -40,7 +40,7 @@ import { Timer } from '@elastic/eui/lib/services/time';
 Test utilities are published from the `lib/test` directory.
 
 ```js
-import { findTestSubject } from '@elastic/eui/lib/test';
+import { findTestSubject } from '@inoft/eui/lib/test';
 ```
 
 ## Using EUI in a standalone project
@@ -52,18 +52,18 @@ You can consume EUI in standalone projects, such as plugins and prototypes.
 Most of the time, you just need the compiled CSS, which provides the styling for the React components.
 
 ```js
-import '@elastic/eui/dist/eui_theme_light.css';
+import '@inoft/eui/dist/eui_theme_light.css';
 ```
 
 Other compiled themes include:
 ```js
-import '@elastic/eui/dist/eui_theme_dark.css';
+import '@inoft/eui/dist/eui_theme_dark.css';
 ```
 ```js
-import '@elastic/eui/dist/eui_theme_amsterdam_light.css';
+import '@inoft/eui/dist/eui_theme_amsterdam_light.css';
 ```
 ```js
-import '@elastic/eui/dist/eui_theme_amsterdam_dark.css';
+import '@inoft/eui/dist/eui_theme_amsterdam_dark.css';
 ```
 
 ### Using our Sass variables on top of compiled CSS
@@ -73,22 +73,22 @@ If you want to build **on top** of the EUI theme by accessing the Sass variables
 First import the correct colors file, followed by the globals file.
 
 ```scss
-@import '@elastic/eui/src/themes/eui/eui_colors_light.scss';
-@import '@elastic/eui/src/themes/eui/eui_globals.scss';
+@import '@inoft/eui/src/themes/eui/eui_colors_light.scss';
+@import '@inoft/eui/src/themes/eui/eui_globals.scss';
 ```
 
 For the dark theme, swap the first import for the dark colors file.
 
 ```scss
-@import '@elastic/eui/src/themes/eui/eui_colors_dark.scss';
-@import '@elastic/eui/src/themes/eui/eui_globals.scss';
+@import '@inoft/eui/src/themes/eui/eui_colors_dark.scss';
+@import '@inoft/eui/src/themes/eui/eui_globals.scss';
 ```
 
 If you want to use the new, but in progress Amsterdam theme, you can import it similarly.
 
 ```scss
-@import '@elastic/eui/src/themes/eui-amsterdam/eui_amsterdam_colors_light.scss';
-@import '@elastic/eui/src/themes/eui-amsterdam/eui_amsterdam_globals.scss';
+@import '@inoft/eui/src/themes/eui-amsterdam/eui_amsterdam_colors_light.scss';
+@import '@inoft/eui/src/themes/eui-amsterdam/eui_amsterdam_globals.scss';
 ```
 
 ### Using Sass to customize EUI
@@ -103,7 +103,7 @@ Here is an example setup.
 // mytheme.scss
 $euiColorPrimary: #7B61FF;
 
-@import '@elastic/eui/src/theme_light.scss';
+@import '@inoft/eui/src/theme_light.scss';
 ```
 
 ### Fonts
@@ -131,7 +131,7 @@ The Sass variables are also made available for consumption as json files. This e
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import styled, { ThemeProvider } from 'styled-components';
-import * as euiVars from '@elastic/eui/dist/eui_theme_light.json';
+import * as euiVars from '@inoft/eui/dist/eui_theme_light.json';
 
 const CustomComponent = styled.div`
   color: ${props => props.theme.euiColorPrimary};
@@ -154,10 +154,10 @@ If you get an error when importing a React component, you might need to configur
 To reduce EUI's impact to application bundle sizes, the icons are dynamically imported on-demand. This is problematic for some bundlers and/or deployments, so a method exists to preload specific icons an application needs.
 
 ```javascript
-import { appendIconComponentCache } from '@elastic/eui/es/components/icon/icon';
+import { appendIconComponentCache } from '@inoft/eui/es/components/icon/icon';
 
-import { icon as EuiIconArrowDown } from '@elastic/eui/es/components/icon/assets/arrow_down';
-import { icon as EuiIconArrowLeft } from '@elastic/eui/es/components/icon/assets/arrow_left';
+import { icon as EuiIconArrowDown } from '@inoft/eui/es/components/icon/assets/arrow_down';
+import { icon as EuiIconArrowLeft } from '@inoft/eui/es/components/icon/assets/arrow_left';
 
 // One or more icons are passed in as an object of iconKey (string): IconComponent
 appendIconComponentCache({

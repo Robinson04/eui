@@ -41,7 +41,7 @@ export default () => {
         EuiToolTip,
       },
       imports: {
-        '@elastic/eui': {
+        '@inoft/eui': {
           named: ['EuiToolTip'],
         },
       },

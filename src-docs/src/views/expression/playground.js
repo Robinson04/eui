@@ -47,7 +47,7 @@ export const expressionConfig = () => {
         EuiExpression,
       },
       imports: {
-        '@elastic/eui': {
+        '@inoft/eui': {
           named: ['EuiExpression'],
         },
       },

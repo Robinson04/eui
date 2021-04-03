@@ -82,7 +82,7 @@ export const badgeConfig = () => {
         EuiBadge,
       },
       imports: {
-        '@elastic/eui': {
+        '@inoft/eui': {
           named: ['EuiBadge'],
         },
       },
@@ -120,7 +120,7 @@ export const betaBadgeConfig = () => {
         EuiBetaBadge,
       },
       imports: {
-        '@elastic/eui': {
+        '@inoft/eui': {
           named: ['EuiBetaBadge'],
         },
       },
@@ -148,7 +148,7 @@ export const notificationBadgeConfig = () => {
         EuiNotificationBadge,
       },
       imports: {
-        '@elastic/eui': {
+        '@inoft/eui': {
           named: ['EuiNotificationBadge'],
         },
       },

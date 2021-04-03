@@ -7,7 +7,7 @@ import {
   LineSeries,
   BarSeries,
   DataGenerator,
-} from '@elastic/charts';
+} from '@inoft/charts';
 
 import {
   EuiSpacer,

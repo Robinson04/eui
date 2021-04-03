@@ -43,7 +43,7 @@ export default () => {
         EuiHealth,
       },
       imports: {
-        '@elastic/eui': {
+        '@inoft/eui': {
           named: ['EuiHealth'],
         },
       },

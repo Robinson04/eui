@@ -34,7 +34,7 @@ export const codeBlockConfig = () => {
         EuiCodeBlock,
       },
       imports: {
-        '@elastic/eui': {
+        '@inoft/eui': {
           named: ['EuiCodeBlock'],
         },
       },
@@ -70,7 +70,7 @@ export const codeConfig = () => {
         EuiCode,
       },
       imports: {
-        '@elastic/eui': {
+        '@inoft/eui': {
           named: ['EuiCode'],
         },
       },
